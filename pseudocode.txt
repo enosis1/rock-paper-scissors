@@ -1,0 +1,10 @@
+pseudocode
+
+Define a function called getComputerChoice
+Assign variable rock to integer 1
+Assign variable paper to integer 2
+Assign variable scissors to integer 3
+
+Assign varible randomInt to an algorithm that gets a random nunmber from 1-3
+
+If randomInt === rock
