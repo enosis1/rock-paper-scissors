@@ -1,10 +1,27 @@
 pseudocode
 
-Define a function called getComputerChoice
-Assign variable rock to integer 1
-Assign variable paper to integer 2
-Assign variable scissors to integer 3
+Define a function called getComputerChoice()
+	Define variable computerChoice
+	Assign varible randomInt to an algorithm that gets a random nunmber from 1-3
 
-Assign varible randomInt to an algorithm that gets a random nunmber from 1-3
+	If randomInt === 1
+		Assign string rock to computerChoice
+	Else if randomInt === 2
+		Assign string paper to computerChoice
+	Else if randomInt === 3
+		Assign string scissors to computerChoice
 
-If randomInt === rock
+Define a function singleRound(playerSelection, computerChoice)
+	computerChoice should equal function getComputerChoce()
+	playerSelection should prompt a response from the user
+	Add a method to playerSelection to make it lower case
+
+	if (playerSelection === computerChoice)
+		Print a message that says "Tie game!"
+	Else if (playerSelection === 'rock' AND computerChoice === 'scissors')
+		Print a message that says "You win! Rock beats Scissors!"
+	Else if (playerSelection === 'scissors' AND computerChoice === 'paper')
+		Print a message that says "You win! Scissors beats paper!"
+	Else if (playerSelection === 'paper' AND computerChoice ==='rock')
+		Print a message that says "You win! Paper beats rock!"
+	Else if ()
