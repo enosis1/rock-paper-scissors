@@ -14,12 +14,10 @@ function getComputerChoice() {
 		computerChoice = 'Scissors';
 	}
 	return computerChoice.toLowerCase();
-}
+};
 
 function singleRound(playerSelection, computerChoice) {
 	computerChoice = getComputerChoice();
-	playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase();
-
 	if (playerSelection === computerChoice) {
 		return ("Tie game!");
 	} else if (playerSelection === 'rock' && computerChoice === 'scissors') {
@@ -30,7 +28,7 @@ function singleRound(playerSelection, computerChoice) {
 		return ("You win! Scissors beats paper!");
 	} else if (playerSelection === 'paper' && computerChoice === 'rock') {
 		playerScore++
-		return ("You win! Rock beats paper!")
+		return ("You win! Paper beats rock!")
 	} else if (computerChoice === 'rock' && playerSelection === 'scissors') {
 		computerScore++
 		return ("You lose! Rock beats Scissors!");
@@ -39,23 +37,34 @@ function singleRound(playerSelection, computerChoice) {
 		return ("You lose! Scissors beats paper!");
 	} else if (computerChoice === 'paper' && playerSelection === 'rock') {
 		computerScore++
-		return ("You lose! Rock beats paper!")
-	}
-	
-}
-
-function game() {
-	for (i = 0; i < 5; i++) {
-		console.log(singleRound());
-		console.log(`Player Score: ${playerScore}.`);
-		console.log(`Computer Score: ${computerScore}.`);
+		return ("You lose! Paper beats rock!")
 	}
 
-	if (playerScore === computerScore) {
-		console.log("Final Score: Tie.")
-	} else if (playerScore > computerScore) {
-		console.log("You win!")
-	} else {
-		console.log("Computer wins!")
-	}
-}
+};
+
+const btnRock = document.querySelector('.button-rock');
+const btnPaper = document.querySelector('.button-paper');
+const btnScissors = document.querySelector('.button-scissors');
+const results = document.querySelector(".results");
+const score = document.querySelector('.score');
+
+btnRock.addEventListener('click', () => {
+	results.textContent = singleRound('rock');
+	score.textContent = trackScore();
+});
+
+btnPaper.addEventListener('click', () => {
+	results.textContent = singleRound('paper');
+	score.textContent = trackScore();
+});
+
+btnScissors.addEventListener('click', () => {
+	results.textContent = singleRound('scissors');
+	score.textContent = trackScore();
+});
+
+function trackScore() {
+	let maxScore = 5;
+
+};
+
