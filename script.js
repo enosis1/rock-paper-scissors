@@ -64,7 +64,15 @@ btnScissors.addEventListener('click', () => {
 });
 
 function trackScore() {
-	let maxScore = 5;
-
+	let finalScore = '';	
+	
+	if (playerScore >= 5) {
+		finalScore = "You win!"
+		return finalScore;
+	} else if (computerScore >= 5) {
+		finalScore = "You lose! Computer wins!"
+		return finalScore;
+	}
+	return `Player Score: ${playerScore}. Computer Score: ${computerScore}.`;
 };
 
