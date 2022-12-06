@@ -1,0 +1,49 @@
+body {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	margin: 0;
+}
+
+.header,
+.footer {
+	display: flex;
+	justify-content: center;
+	background-color: lightgray;
+}
+
+.footer {
+	margin-top: auto;
+}
+
+.header-text {
+	font-size: x-large;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	align-items: center;
+	justify-content: center;
+}
+
+.content-text {
+	padding: 20px;
+}
+
+.buttons {
+	margin: 50px;
+	width: auto;
+}
+
+button {
+	border-radius: 18px;
+	border: 1px solid black;
+	font-size: 20px;
+}
+
+.text-results,
+.text-score {
+	text-align: center;
+}

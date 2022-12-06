@@ -19,7 +19,7 @@ function getComputerChoice() {
 function singleRound(playerSelection, computerChoice) {
 	computerChoice = getComputerChoice();
 	if (playerSelection === computerChoice) {
-		return ("Tie game!");
+		return (`Tie game! You both chose ${playerSelection}.`);
 	} else if (playerSelection === 'rock' && computerChoice === 'scissors') {
 		playerScore++
 		return ("You win! Rock beats Scissors!");
@@ -45,8 +45,8 @@ function singleRound(playerSelection, computerChoice) {
 const btnRock = document.querySelector('.button-rock');
 const btnPaper = document.querySelector('.button-paper');
 const btnScissors = document.querySelector('.button-scissors');
-const results = document.querySelector(".results");
-const score = document.querySelector('.score');
+const results = document.querySelector(".text-results");
+const score = document.querySelector('.text-score');
 
 btnRock.addEventListener('click', () => {
 	results.textContent = singleRound('rock');
