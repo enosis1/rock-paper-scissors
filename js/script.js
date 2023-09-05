@@ -26,16 +26,27 @@ function getComputerChoice() {
 // Create a score tracker
 // Display score after each game (best of 5)
 // function game()
-function game(rounds) {
+function game() {
   // I need to keep score of the winners
   let playerScore = 0;
   let computerScore = 0;
 
   // Loop through rounds
-  for (let i = 1; i <= rounds; i++) {
+  for (let i = 1; i <= 5; i++) {
     // Within the game() function, get input from the user for playerSelection using prompt
     let playerSelection = prompt("Rock, Paper, or scissors?", "rock");
-    playSingleRound(playerSelection, getComputerChoice());
+
+    if (i === 5 && playerScore > computerScore) {
+      return console.log("Player Wins!");
+    } else if (i === 5 && computerScore > playerScore) {
+      return console.log("Computer Wins!");
+    } else if (i === 5 && computerScore === playerScore) {
+      return console.log(
+        `Tie game! Computer Score: ${computerScore}. Player Score: ${playerScore}.`
+      );
+    } else {
+      playSingleRound(playerSelection, getComputerChoice());
+    }
   }
 
   // Write a function that plays a single round of rock paper scissors
@@ -50,12 +61,12 @@ function game(rounds) {
     } else if (playerSelection === "paper" && computerSelection === "rock") {
       playerScore++;
       return console.log(
-        `Player has won this round! ${playerSelection} beats ${computerSelection} Current Player Score: ${playerScore}`
+        `Player has won this round! ${playerSelection} beats ${computerSelection} Current Player Score:${playerScore}`
       );
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
       playerScore++;
       return console.log(
-        `Player has won this round! ${playerSelection} beats ${computerSelection} Current Player Score: ${playerScore}`
+        `Player has won this round! ${playerSelection} beats ${computerSelection} Current Player Score:${playerScore}`
       );
     } else if (
       playerSelection === "scissors" &&
@@ -63,17 +74,17 @@ function game(rounds) {
     ) {
       playerScore++;
       return console.log(
-        `Player has won this round! ${playerSelection} beats ${computerSelection} Current Player Score: ${playerScore}`
+        `Player has won this round! ${playerSelection} beats ${computerSelection} Current Player Score:${playerScore}`
       );
     } else if (computerSelection === "paper" && playerSelection === "rock") {
       computerScore++;
       return console.log(
-        `Computer has won this round! ${computerSelection} beats ${playerSelection} Current Computer Score: ${computerScore}`
+        `Computer has won this round! ${computerSelection} beats ${playerSelection} Current Computer Score:${computerScore}`
       );
     } else if (computerSelection === "rock" && playerSelection === "scissors") {
       computerScore++;
       return console.log(
-        `Computer has won this round! ${computerSelection} beats ${playerSelection} Current Computer Score: ${computerScore}`
+        `Computer has won this round! ${computerSelection} beats ${playerSelection} Current Computer Score:${computerScore}`
       );
     } else if (
       computerSelection === "scissors" &&
@@ -81,7 +92,7 @@ function game(rounds) {
     ) {
       computerScore++;
       return console.log(
-        `Computer has won this round! ${computerSelection} beats ${playerSelection} Current Computer Score: ${computerScore}`
+        `Computer has won this round! ${computerSelection} beats ${playerSelection} Current Computer Score:${computerScore}`
       );
     }
   }
