@@ -1,16 +1,19 @@
-// Test that scritp.js is linked with index.html
-// console.log('Hello World!')
-// It worked and the file is linked to index.html
+const btnsContainer = document.querySelector(".buttons");
+const btns = document.querySelectorAll("button");
+const container = document.querySelector(".container");
+const result = document.createElement("p");
 
-// How does rock paper scissors work?
-// Two players go back and forth and have three selections to choose from:
-// Rock, Paper, Scissors
-// Rock beats Scissors, Paper beats Rock, Scissors beats Paper
+const victoryMessage = document.createElement("p");
+result.classList.toggle("result");
+container.insertBefore(result, btnsContainer);
+container.insertBefore(victoryMessage, btnsContainer);
 
-// Problem:
-// Create a rock paper scissors game within the console
-//    function getComputerChoice()
-//    That randomly returns either 'Rock' 'Paper' or 'Scissors'
+btns.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    playSingleRound(e.target.textContent, getComputerChoice());
+  });
+});
+
 function getComputerChoice() {
   let randomChoice = Math.floor(Math.random() * 3);
 
@@ -22,78 +25,55 @@ function getComputerChoice() {
     return "scissors";
   }
 }
+let playerScore = 0;
+let computerScore = 0;
 
-// Create a score tracker
-// Display score after each game (best of 5)
-// function game()
-function game() {
-  // I need to keep score of the winners
-  let playerScore = 0;
-  let computerScore = 0;
+// Write a function that plays a single round of rock paper scissors
+function playSingleRound(playerSelection, computerSelection) {
+  // Track score;
 
-  // Loop through rounds
-  for (let i = 1; i <= 5; i++) {
-    // Within the game() function, get input from the user for playerSelection using prompt
-    let playerSelection = prompt("Rock, Paper, or scissors?", "rock");
-
-    if (i === 5 && playerScore > computerScore) {
-      return console.log("Player Wins!");
-    } else if (i === 5 && computerScore > playerScore) {
-      return console.log("Computer Wins!");
-    } else if (i === 5 && computerScore === playerScore) {
-      return console.log(
-        `Tie game! Computer Score: ${computerScore}. Player Score: ${playerScore}.`
-      );
-    } else {
-      playSingleRound(playerSelection, getComputerChoice());
-    }
-  }
-
-  // Write a function that plays a single round of rock paper scissors
-  function playSingleRound(playerSelection, computerSelection) {
+  if (playerScore === 5) {
+    result.textContent = `Final score: Player: ${playerScore} Computer: ${computerScore}`;
+    victoryMessage.textContent = "Player wins!";
+    playerScore = 0;
+    computerScore = 0;
+  } else if (computerScore === 5) {
+    result.textContent = `Final score: Player: ${playerScore} Computer: ${computerScore}`;
+    victoryMessage.textContent = "Computer wins!";
+    playerScore = 0;
+    computerScore = 0;
+  } else {
     // Returns user input and lower cases it
-    // Make the playerSelection case-insensative ('rock' 'ROck' 'ROCK')
     playerSelection = playerSelection.toLowerCase();
+    victoryMessage.textContent = "";
 
     // Return a string that declares the winner of the round
     if (playerSelection === computerSelection) {
-      return console.log("Tie game!");
+      return (result.textContent = `Tie game! You both chose ${playerSelection}!`);
     } else if (playerSelection === "paper" && computerSelection === "rock") {
       playerScore++;
-      return console.log(
-        `Player has won this round! ${playerSelection} beats ${computerSelection} Current Player Score:${playerScore}`
-      );
+      return (result.textContent = `Player has won this round! ${playerSelection} beats ${computerSelection}.`);
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
       playerScore++;
-      return console.log(
-        `Player has won this round! ${playerSelection} beats ${computerSelection} Current Player Score:${playerScore}`
-      );
+      return (result.textContent = `Player has won this round! ${playerSelection} beats ${computerSelection}.`);
     } else if (
       playerSelection === "scissors" &&
       computerSelection === "paper"
     ) {
       playerScore++;
-      return console.log(
-        `Player has won this round! ${playerSelection} beats ${computerSelection} Current Player Score:${playerScore}`
-      );
+      return (result.textContent = `Player has won this round! ${playerSelection} beats ${computerSelection}.`);
     } else if (computerSelection === "paper" && playerSelection === "rock") {
       computerScore++;
-      return console.log(
-        `Computer has won this round! ${computerSelection} beats ${playerSelection} Current Computer Score:${computerScore}`
-      );
+      return (result.textContent = `Computer has won this round! ${computerSelection} beats ${playerSelection}.`);
     } else if (computerSelection === "rock" && playerSelection === "scissors") {
       computerScore++;
-      return console.log(
-        `Computer has won this round! ${computerSelection} beats ${playerSelection} Current Computer Score:${computerScore}`
-      );
+      return (result.textContent = `Computer has won this round! ${computerSelection} beats ${playerSelection}.`);
     } else if (
       computerSelection === "scissors" &&
       playerSelection === "paper"
     ) {
       computerScore++;
-      return console.log(
-        `Computer has won this round! ${computerSelection} beats ${playerSelection} Current Computer Score:${computerScore}`
-      );
+      return (result.textContent = `Computer has won this round! ${computerSelection} beats ${playerSelection}.`);
     }
   }
 }
