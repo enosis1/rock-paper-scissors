@@ -2,11 +2,21 @@ const btnsContainer = document.querySelector(".buttons");
 const btns = document.querySelectorAll("button");
 const container = document.querySelector(".container");
 const result = document.createElement("p");
-
 const victoryMessage = document.createElement("p");
+const paras = document.createElement("div");
+const score = document.createElement("p");
+
+paras.appendChild(result);
+paras.appendChild(victoryMessage);
+paras.appendChild(score);
+
+victoryMessage.classList.toggle("victory");
 result.classList.toggle("result");
-container.insertBefore(result, btnsContainer);
-container.insertBefore(victoryMessage, btnsContainer);
+paras.classList.toggle("paras");
+container.insertBefore(paras, btnsContainer);
+
+result.textContent = "Click a button to play the game!";
+victoryMessage.textContent = "First to 5 wins!";
 
 btns.forEach((button) => {
   button.addEventListener("click", (e) => {
