@@ -34,5 +34,11 @@ function getHumanChoice() {
 }
 
 // Declare the players score
+// - Set human score to 0
+// - Set computer score to 0
+//
+let humanScore = 0;
+let computerScore = 0;
+
 // Write the logic to play a single round
 // Write the logic to play the entire game out of 5 rounds
