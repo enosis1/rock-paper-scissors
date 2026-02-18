@@ -1,7 +1,4 @@
 // Write the logic to get the computer's choice (Between Rock, Paper and Scissors)
-// - Get strings "rock", "paper" or "scissors" randomly for the computer
-// - Return the value
-//
 function getComputerChoice() {
   const randomNumber = Math.floor(Math.random() * 3) + 1;
 
@@ -15,11 +12,6 @@ function getComputerChoice() {
 }
 
 // Write the logic to get the human's choice (Between Rock, Paper and Scissors)
-// - Get choice of "rock", "paper", or "scissors" from user
-// - If choice does not equal those values
-//    - Return message saying invalid choice
-// - Otherwise return the human choice
-//
 function getHumanChoice() {
   let choice = prompt("Rock, Paper or Scissors?", "Rock").toLowerCase();
 
@@ -34,24 +26,10 @@ function getHumanChoice() {
 }
 
 // Declare the players score
-// - Set human score to 0
-// - Set computer score to 0
-//
 let humanScore = 0;
 let computerScore = 0;
 
 // Write the logic to play a single round
-// - Declare function to get a winner from a single round from human and computer choice
-// - If the humanChoice and computerChoice are the same
-//    - Don't increment either players scores
-//    - Log a message describing a tie
-//  - Else if the humanChoice beats the computerChoice
-//    - Increment the humanChoice by one
-//    - Log a message saying that the player has won
-//  - Otherwise the computerChoice beats the humanChoice
-//    - Increment the computerChoice by one
-//    - Log a message saying that the computer has won
-//
 function playRound(humanChoice, computerChoice) {
   if (humanChoice === computerChoice) {
     console.log("Tie! No points given.");
@@ -94,19 +72,8 @@ function playRound(humanChoice, computerChoice) {
 function getScores() {
   return `Human Score: ${humanScore}. Computer Score: ${computerScore}.`;
 }
+
 // Write the logic to play the entire game out of 5 rounds
-// Play 5 rounds of rock paper scissors
-// If the amount of rounds played are less than 5
-//   - Continue to play
-// Otherwise
-//   - Stop the game
-//   - Find who has the most points and declare them the winner.
-//      - If scores are even
-//        - Tie game, both players have the same score.
-//      - Else if the human has more points
-//        - Return a message describing the human as the winner with their total points
-//      - Otherwise
-//        - Return a message describing the computer as the winner with their total points
 //
 function playGame() {
   for (let rounds = 0; rounds < 5; rounds++) {
