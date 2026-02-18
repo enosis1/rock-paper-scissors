@@ -9,10 +9,10 @@ version as well.
 
 ## Planning Phase
 
-### Understand the Problem. 
+### Understand The Problem
 What is the problem that I am trying to achive?: Play Rock Paper Scissors within the console.
 
-### Plan.
+### Plan
 Planning:
 - Write the logic to get the computer's choice (Between Rock, Paper and Scissors)
 - Write the logic to get the human's choice (Between Rock, Paper and Scissors)
