@@ -14,8 +14,25 @@ function getComputerChoice() {
   }
 }
 
-console.log(getComputerChoice());
 // Write the logic to get the human's choice (Between Rock, Paper and Scissors)
+// - Get choice of "rock", "paper", or "scissors" from user
+// - If choice does not equal those values
+//    - Return message saying invalid choice
+// - Otherwise return the human choice
+//
+function getHumanChoice() {
+  let choice = prompt("Rock, Paper or Scissors?", "Rock").toLowerCase();
+
+  while (choice !== "rock" && choice !== "paper" && choice !== "scissors") {
+    choice = prompt(
+      "Invalid Response: Type 'Rock', 'Paper', or 'Scissors'",
+      "Rock",
+    ).toLowerCase();
+  }
+
+  return choice;
+}
+
 // Declare the players score
 // Write the logic to play a single round
 // Write the logic to play the entire game out of 5 rounds
