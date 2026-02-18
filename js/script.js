@@ -95,3 +95,34 @@ function getScores() {
   return `Human Score: ${humanScore}. Computer Score: ${computerScore}.`;
 }
 // Write the logic to play the entire game out of 5 rounds
+// Play 5 rounds of rock paper scissors
+// If the amount of rounds played are less than 5
+//   - Continue to play
+// Otherwise
+//   - Stop the game
+//   - Find who has the most points and declare them the winner.
+//      - If scores are even
+//        - Tie game, both players have the same score.
+//      - Else if the human has more points
+//        - Return a message describing the human as the winner with their total points
+//      - Otherwise
+//        - Return a message describing the computer as the winner with their total points
+//
+function playGame() {
+  for (let rounds = 0; rounds < 5; rounds++) {
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+
+    playRound(humanSelection, computerSelection);
+  }
+
+  if (humanScore === computerScore) {
+    console.log(`Tie Game! Both players have ${humanScore}.`);
+  } else if (humanScore > computerScore) {
+    console.log(`Human wins! Final score: ${getScores()}`);
+  } else {
+    console.log(`Computer wins! Final score: ${getScores()}`);
+  }
+}
+
+playGame();
