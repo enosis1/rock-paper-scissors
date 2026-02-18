@@ -33,39 +33,22 @@ let computerScore = 0;
 function playRound(humanChoice, computerChoice) {
   if (humanChoice === computerChoice) {
     console.log("Tie! No points given.");
-    return;
-  }
-
-  if (humanChoice === "rock" && computerChoice === "scissors") {
+  } else if (
+    (humanChoice === "rock" && computerChoice === "scissors") ||
+    (humanChoice === "scissors" && computerChoice === "paper") ||
+    (humanChoice === "paper" && computerChoice === "rock")
+  ) {
     console.log(`Human wins! ${humanChoice} beats ${computerChoice}!`);
     humanScore += 1;
     console.log(getScores());
-    return;
-  } else if (computerChoice === "rock" && humanChoice === "scissors") {
+  } else if (
+    (computerChoice === "rock" && humanChoice === "scissors") ||
+    (computerChoice === "scissors" && humanChoice === "paper") ||
+    (computerChoice === "paper" && humanChoice === "rock")
+  ) {
     console.log(`Computer wins! ${computerChoice} beats ${humanChoice}!`);
     computerScore += 1;
     console.log(getScores());
-    return;
-  } else if (humanChoice === "scissors" && computerChoice === "paper") {
-    console.log(`Human wins! ${humanChoice} beats ${computerChoice}!`);
-    humanScore += 1;
-    console.log(getScores());
-    return;
-  } else if (computerChoice === "scissors" && humanChoice === "paper") {
-    console.log(`Computer wins! ${computerChoice} beats ${humanChoice}!`);
-    computerScore += 1;
-    console.log(getScores());
-    return;
-  } else if (humanChoice === "paper" && computerChoice === "rock") {
-    console.log(`Human wins! ${humanChoice} beats ${computerChoice}!`);
-    humanScore += 1;
-    console.log(getScores());
-    return;
-  } else {
-    console.log(`Computer wins! ${computerChoice} beats ${humanChoice}!`);
-    computerScore += 1;
-    console.log(getScores());
-    return;
   }
 }
 
