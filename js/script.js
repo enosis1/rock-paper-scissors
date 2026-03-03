@@ -59,12 +59,10 @@ function getScores() {
 // Write the logic to play the entire game out of 5 rounds
 //
 function playGame() {
-  for (let rounds = 0; rounds < 5; rounds++) {
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
+  const humanSelection = getHumanChoice();
+  const computerSelection = getComputerChoice();
 
-    playRound(humanSelection, computerSelection);
-  }
+  playRound(humanSelection, computerSelection);
 
   if (humanScore === computerScore) {
     console.log(`Tie Game! Both players have ${humanScore}.`);
