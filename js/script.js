@@ -31,24 +31,26 @@ let computerScore = 0;
 
 // Write the logic to play a single round
 function playRound(humanChoice, computerChoice) {
+  message.textContent = "";
+  score.textContent = "";
   if (humanChoice === computerChoice) {
-    console.log("Tie! No points given.");
+    message.textContent = `You both chose ${humanChoice}. Tie.`;
   } else if (
     (humanChoice === "rock" && computerChoice === "scissors") ||
     (humanChoice === "scissors" && computerChoice === "paper") ||
     (humanChoice === "paper" && computerChoice === "rock")
   ) {
-    console.log(`Human wins! ${humanChoice} beats ${computerChoice}!`);
+    message.textContent = `Human wins! ${humanChoice} beats ${computerChoice}!`;
     humanScore += 1;
-    console.log(getScores());
+    score.textContent = ` ${getScores()}`;
   } else if (
     (computerChoice === "rock" && humanChoice === "scissors") ||
     (computerChoice === "scissors" && humanChoice === "paper") ||
     (computerChoice === "paper" && humanChoice === "rock")
   ) {
-    console.log(`Computer wins! ${computerChoice} beats ${humanChoice}!`);
+    message.textContent = `Computer wins! ${computerChoice} beats ${humanChoice}!`;
     computerScore += 1;
-    console.log(getScores());
+    score.textContent += ` ${getScores()}`;
   }
 }
 
@@ -78,5 +80,9 @@ function playGame(e) {
 // When a button is clicked, get that value
 // Set the value of the button to the humanChoice
 const btns = document.querySelector(".buttons");
-
 btns.addEventListener("click", playGame);
+
+// Add a div to display results
+// Update the div textContent from the log messages to be displayed in the div
+const message = document.querySelector(".message");
+const score = document.querySelector(".score");
