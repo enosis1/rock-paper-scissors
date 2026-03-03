@@ -56,12 +56,11 @@ function getScores() {
   return `Human Score: ${humanScore}. Computer Score: ${computerScore}.`;
 }
 
-// Write the logic to play the entire game out of 5 rounds
-//
-function playGame() {
-  const humanSelection = getHumanChoice();
+function playGame(e) {
+  const humanSelection = e.target.textContent.toLowerCase();
   const computerSelection = getComputerChoice();
 
+  console.log(humanSelection);
   playRound(humanSelection, computerSelection);
 
   if (humanScore === computerScore) {
@@ -73,4 +72,11 @@ function playGame() {
   }
 }
 
-playGame();
+// Remove the 5 rounds
+// Add an event listener to buttons that call the playRound function
+// For each button, add an event listener
+// When a button is clicked, get that value
+// Set the value of the button to the humanChoice
+const btns = document.querySelector(".buttons");
+
+btns.addEventListener("click", playGame);
